@@ -1,0 +1,18 @@
+mixin map(ranks, files, height , Results)
+  - for (var rowIndex = 0; rowIndex < ranks; rowIndex += 1) {
+    - var boardEvenOrOddClass = rowIndex%2 ? 'board-row-odd' : 'board-row-even';
+    - var boardRowNumberClass = 'board-row-' + rowIndex;
+    - var boardRowClass = 'board ' + boardRowNumberClass + ' ' + boardEvenOrOddClass;
+    - var boardRowStyle = 'position:absolute; top:' + rowIndex*(height/2) + 'px;';
+    - for (var tileIndex = 0; tileIndex < Results.length; tileIndex += 1) {
+      div#mapListin(class='map1') 
+        table(class='file-tile')
+         tr
+          td
+           a(href='#{Results[tileIndex].Category_redirected_url}')
+            img(class='board-tile board-tile-' + tileIndex, src='#{Results[tileIndex].Category_img_url}' , height='350')
+         tr(class='board-file')
+          td.
+            #{Results[tileIndex].Category_des}
+      - }
+  - } 

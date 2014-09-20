@@ -1,0 +1,29 @@
+doctype
+html
+  head
+    //- this is for the div that contains the map
+    style(type='text/css') #mapList { height:100%; width:100%; display:block; background-color:grey; border:2px; border-radius:4px; padding:2px; margin:2px; position:relative; }
+
+    style(type='text/css') #mapListin { width:46%; border-radius: 12px; vertical-align: top; background-color:white; float:left; margin-top: 2%;   margin-bottom: 2%;  margin-right: 2%; margin-left: 2%;}
+
+    //- each list element in a row of the board is inline
+    style(type='text/css') li.board-tile { display:inline; }
+
+    style(type='text/css') td.board-file { vertical-align: bottom;}
+
+    style(type='text/css') table.file-tile { border-spacing: 0px; cellpadding: 0px; cellspacing: 0px; font: bold 12px/20px;font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;}
+    
+    //- generally, images are left padded half the width of a tile
+    style(type='text/css')= 'img.board-tile { width:100%; border-radius: 12px 12px 0px 0px; }'
+    
+    //- but the very first board tile in a row is not left padded
+    style(type='text/css') img.board-tile-0 { padding:0px; }
+    
+
+  body(bgcolor='grey')
+    h1 Welcome #{username}
+    hr
+    div#mapList(class='map')
+      //- map.jade builds the hex board
+      include map
+      mixin map(1,7,300,Results)

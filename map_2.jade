@@ -1,0 +1,16 @@
+mixin map(ranks, files, height)
+  - for (var rowIndex = 0; rowIndex < ranks; rowIndex += 1) {
+    - var boardEvenOrOddClass = rowIndex%2 ? 'board-row-odd' : 'board-row-even';
+    - var boardRowNumberClass = 'board-row-' + rowIndex;
+    - var boardRowClass = 'board ' + boardRowNumberClass + ' ' + boardEvenOrOddClass;
+    - var boardRowStyle = 'position:absolute; top:' + rowIndex*(height/2) + 'px;';
+    - for (var tileIndex = 0; tileIndex < files; tileIndex += 1) {
+        table(class='board-tile')
+         tr
+         td
+         img(class='board-tile board-tile-' + tileIndex, src='images/music.jpg')
+         tr
+         td
+          
+      - }
+  - }
